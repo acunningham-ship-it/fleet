@@ -1,0 +1,14 @@
+[Unit]
+Description=Fleet tmux server (durable agent session host)
+After=default.target
+
+[Service]
+# oneshot+RemainAfterExit: run the idempotent ensure-up, then stay "active (exited)".
+# The tmux server itself daemonizes and lives independently of this unit's lifetime.
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=%h/.local/bin/fleet up
+ExecStop=/usr/bin/tmux -S %h/.tmux/fleet.sock kill-server
+
+[Install]
+WantedBy=default.target
