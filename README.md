@@ -7,7 +7,7 @@ The problem it fixes: you ssh into a box, start a few `claude` sessions, your co
 ## Install
 
 ```bash
-git clone https://github.com/<you>/fleet
+git clone https://github.com/acunningham-ship-it/fleet
 install -m755 fleet/fleet ~/.local/bin/fleet        # put it on your PATH
 mkdir -p ~/.tmux && cp fleet/fleet.conf ~/.tmux/fleet.conf
 ```
